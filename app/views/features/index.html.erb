@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Features</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rooms</th>
+      <th>Bedrooms</th>
+      <th>Bathrooms</th>
+      <th>Carspaces</th>
+      <th>Landsize</th>
+      <th>Buildingarea</th>
+      <th>Distance</th>
+      <th>Property</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @features.each do |feature| %>
+      <tr>
+        <td><%= feature.rooms %></td>
+        <td><%= feature.bedrooms %></td>
+        <td><%= feature.bathrooms %></td>
+        <td><%= feature.carspaces %></td>
+        <td><%= feature.landsize %></td>
+        <td><%= feature.buildingarea %></td>
+        <td><%= feature.distance %></td>
+        <td><%= feature.property_id %></td>
+        <td><%= link_to 'Show', feature %></td>
+        <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
+        <td><%= link_to 'Destroy', feature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feature', new_feature_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rooms:</strong>
+  <%= @feature.rooms %>
+</p>
+
+<p>
+  <strong>Bedrooms:</strong>
+  <%= @feature.bedrooms %>
+</p>
+
+<p>
+  <strong>Bathrooms:</strong>
+  <%= @feature.bathrooms %>
+</p>
+
+<p>
+  <strong>Carspaces:</strong>
+  <%= @feature.carspaces %>
+</p>
+
+<p>
+  <strong>Landsize:</strong>
+  <%= @feature.landsize %>
+</p>
+
+<p>
+  <strong>Buildingarea:</strong>
+  <%= @feature.buildingarea %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @feature.distance %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @feature.property_id %>
+</p>
+
+<%= link_to 'Edit', edit_feature_path(@feature) %> |
+<%= link_to 'Back', features_path %>

@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rooms: 1
+  bedrooms: 1
+  bathrooms: 1
+  carspaces: 1
+  landsize: 1
+  buildingarea: 1
+  distance: 9.99
+  property: one
+
+two:
+  rooms: 1
+  bedrooms: 1
+  bathrooms: 1
+  carspaces: 1
+  landsize: 1
+  buildingarea: 1
+  distance: 9.99
+  property: two
