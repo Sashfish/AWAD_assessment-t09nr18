@@ -3,7 +3,7 @@ class CreateProperties < ActiveRecord::Migration[6.0]
     create_table :properties do |t|
       t.text :suburb
       t.text :address
-      t.text :type
+      t.text :ptype
       t.integer :price
       t.integer :yearbuilt
       t.text :councilarea
