@@ -20,9 +20,8 @@ namespace :houses do
           longitude: row[18].to_f,
           regionname: row[19])
 
-          property.save!
-          p = Property.where("address = ?", row[1]).select(:id)
-          print p
+        property.save!
+          p = Property.where("address = ?", row[1]).pluck(:id).to_s[1..-2]
         p 'Importing features for ' + row[1].to_s
         #create new model instances with the data
         feature = Feature.create!(
