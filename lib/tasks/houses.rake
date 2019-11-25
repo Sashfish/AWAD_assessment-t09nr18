@@ -6,7 +6,6 @@ namespace :houses do
   Feature.destroy_all
   p 'Beginning import'
 	CSV.foreach(Rails.root.join('.', 'lib', 'assets', 'Melbourne_housing_FULL.csv'), :headers =>true) do |row|
-        count = 1
         p 'Importing property ' + row[1].to_s
         #create new model instances with the data
         property = Property.create!(
@@ -34,10 +33,10 @@ namespace :houses do
           distance: row[8].to_f,
           property_id: p)
         feature.save!
-
-        count +=1
-          break if count > 3000
-    end
-    p 'Houses imported'
+        if Property.count > 3000
+          p 'Houses imported'
+          break
+        end
   end
+end
 end
