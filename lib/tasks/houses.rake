@@ -36,10 +36,7 @@ namespace :houses do
         feature.save!
 
         count +=1
-        if count > 3000
-          p 'House count over 3000, terminating import (thanks heroku)'
-          break
-      end
+          break if count > 3000
     end
     p 'Houses imported'
   end
