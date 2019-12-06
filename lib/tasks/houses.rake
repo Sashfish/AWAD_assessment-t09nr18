@@ -1,4 +1,5 @@
 require 'csv'
+require 'faker'
 namespace :houses do
   desc "pull houses into DB"
   task import: :environment do
@@ -33,10 +34,25 @@ namespace :houses do
           distance: row[8].to_f,
           property_id: p)
         feature.save!
-        if Property.count > 3000
+        if Property.count > 300 #CHANGE TO 3000 FOR PRODUCTION
           p 'Houses imported'
           break
         end
   end
+end
+
+desc "fake prices/yearsbuilt for properties with price or yearbuilt = 0" #broken, don't use
+task zerofill: :environment do
+
+Property.where(price: 0).each do |property|
+  property.update!(price: Faker::Number.between(from: 100000, to: 1000000))
+  p 'Found price of zero - randomised'
+end
+
+Property.where(yearbuilt: 0).each do |property2|
+  property2.update!(yearbuilt: Faker::Number.between(from: 1900, to: 2010))
+  p 'Found yearbuilt of zero - randomised'
+
+end
 end
 end

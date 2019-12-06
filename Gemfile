@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap', '>= 4.3.1'
 gem 'will_paginate', '~> 3.1.0'
 gem 'devise'
+gem 'faker'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
