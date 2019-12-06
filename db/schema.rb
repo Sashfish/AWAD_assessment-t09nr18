@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_215936) do
+ActiveRecord::Schema.define(version: 2019_12_06_074832) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 2019_12_04_215936) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "features", force: :cascade do |t|
@@ -36,6 +41,15 @@ ActiveRecord::Schema.define(version: 2019_12_04_215936) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["property_id"], name: "index_features_on_property_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer "property_id", null: false
+    t.integer "cart_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["property_id"], name: "index_line_items_on_property_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -65,4 +79,6 @@ ActiveRecord::Schema.define(version: 2019_12_04_215936) do
   end
 
   add_foreign_key "features", "properties"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "properties"
 end

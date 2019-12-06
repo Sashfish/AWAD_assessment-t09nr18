@@ -63,7 +63,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">Check the weather</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Services</a>
@@ -97,6 +97,7 @@
               <th scope="col">Suburb</th>
               <th scope="col">Location</th>
               <th scope="col">Region name</th>
+              <th scope="col">Buy now!</th>
             </tr>
           </thead>
           <tbody>
@@ -113,6 +114,7 @@
               <td><%=prop.suburb%></td>
               <td>LAT/LNG</td>
               <td><%=prop.regionname%></td>
+              <td><%=button_to 'Add to Cart', line_items_path(property_id: prop.id)%></td>
             </tr>
                   <%end%>
       </table>
