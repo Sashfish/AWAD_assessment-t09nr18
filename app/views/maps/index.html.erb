@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+<div id="mapid" style="height: 600px;"></div>
+
+<script>
+var lmap = L.map('mapid').setView([-37.8136, 144.9631],12);
+ L.tileLayer('http://tile.stamen.com/watercolor/{z}/{x}/{y}.png', {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.',
+      maxZoom:17
+  }).addTo(lmap);
+
+<% @properties.each do |prop|%>
+ marker<%=escape_javascript prop.id%> = L.marker([<%=escape_javascript prop.lattitude%>, <%=escape_javascript prop.longitude%>]).addTo(lmap);
+ marker<%=escape_javascript prop.id%>.bindPopup('<h3><%=escape_javascript prop.address%></h3><p>Rooms:<b><%=escape_javascript (Feature.where(id: prop.id).pluck(:rooms))%></b>');
+<%end%>
+</script>
