@@ -81,7 +81,15 @@
         <h1 class="my-4">Shop Name</h1>
       </div>
   </div>
-
+<div class="search">
+  <%=form_tag(properties_path, method: :get) do%>
+  <%=text_field_tag(:search,params[:search])%>
+  <%=submit_tag ("Search")%>
+  <%end%>
+  <% @properties.each do |prop| %>
+   <ul><li><%= link_to prop.address, property_path(prop) %></li></ul><br>
+   <%end%>
+</div>
   <div class="digg_pagination">
       <div class="page_info">
         <%= page_entries_info @properties %>
@@ -120,4 +128,6 @@
       </table>
       <%=will_paginate @properties%>
     </div>
+
+
       </div>
