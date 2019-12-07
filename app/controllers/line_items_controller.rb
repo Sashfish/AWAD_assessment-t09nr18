@@ -28,7 +28,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     property = Property.find(params[:property_id])
-    @line_item = @cart.line_items.build(property: property)
+    @line_item = @cart.add_property(property)
 
     respond_to do |format|
       if @line_item.save
