@@ -1,17 +1,16 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4">Melbourne Housing Market</h1>
       </div>
   </div>
 <div class="search">
-  <%=form_tag(properties_path, method: :get) do%>
-  <%=text_field_tag(:search,params[:search])%>
-  <%=submit_tag ("Search")%>
-  <%end%>
-  <% @properties.each do |prop| %>
-   <ul><li><%= link_to prop.address, property_path(prop) %></li></ul><br>
-   <%end%>
+  <%= form_tag properties_path, :method => 'get' do %>
+  <%= content_tag :label do %>
+    Search for an address:
+    <%= text_field_tag :search, params[:search] %>
+  <% end %>
+<% end %>
 </div>
   <div class="digg_pagination">
       <div class="page_info">
@@ -43,7 +42,7 @@
               <td><%=number_to_currency(prop.price)%></td>
               <td><%=prop.yearbuilt%></td>
               <td><%=prop.suburb%></td>
-              <td>LAT/LNG</td>
+              <td><%=prop.lattitude%>/<%=prop.longitude%></td>
               <td><%=prop.regionname%></td>
               <td><%=button_to 'Add to Cart', line_items_path(property_id: prop.id)%></td>
             </tr>
@@ -51,6 +50,4 @@
       </table>
       <%=will_paginate @properties%>
     </div>
-
-
-      </div>
+</div>

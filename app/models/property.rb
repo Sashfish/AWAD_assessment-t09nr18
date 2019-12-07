@@ -1,16 +1,7 @@
 class Property < ApplicationRecord
   has_one :feature
-
-  def self.search(search)
-    if search
-      property=Property.find_by(address: search)
-      if search
-        self.where(address: property)
-      else
-        Property.all
-      end
-    else
-      Property.all
-    end
+#https://github.com/mislav/will_paginate/wiki/Simple-search
+  def self.search(search, page)
+  paginate :per_page => 5, :page => page, :conditions => ['address like ?', "%#{search}%"], :order => 'address'
   end
 end

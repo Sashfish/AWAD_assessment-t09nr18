@@ -4,7 +4,8 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
-    @properties = Property.search(params[:search])
+    p = params[:search]
+    @properties = Property.where('address like ?', "%#{p}%")
   end
 
   # GET /properties/1
