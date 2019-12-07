@@ -12,6 +12,10 @@ var lmap = L.map('mapid').setView([-37.8136, 144.9631],12);
 
 <% @properties.each do |prop|%>
  marker<%=escape_javascript prop.id%> = L.marker([<%=escape_javascript prop.lattitude%>, <%=escape_javascript prop.longitude%>]).addTo(lmap);
- marker<%=escape_javascript prop.id%>.bindPopup('<h3><%=escape_javascript prop.address%></h3><p>Rooms:<b><%=escape_javascript (Feature.where(id: prop.id).pluck(:rooms))%></b>');
+ marker<%=escape_javascript prop.id%>.bindPopup('<h5><%=escape_javascript prop.address%></h5><h6><i>$<%=escape_javascript prop.price%></i></h6><%=link_to "See the property", property_path(prop)%></b>');
 <%end%>
+
+</script>
+<script>
+if(window.location.href.substr(-2) !== "?r") {window.location = window.location.href + "?r";}
 </script>

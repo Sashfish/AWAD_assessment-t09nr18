@@ -12,7 +12,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @property.type %>
+  <%= @property.ptype %>
 </p>
 
 <p>
@@ -45,5 +45,6 @@
   <%= @property.regionname %>
 </p>
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
+<%=button_to 'Add to Cart', line_items_path(property_id: @property.id)%>
+
 <%= link_to 'Back', properties_path %>
