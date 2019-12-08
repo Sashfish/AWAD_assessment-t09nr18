@@ -2,6 +2,10 @@ class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
   before_destroy :ensure_not_referenced_by_any_line_item
 
+def total_price
+  line_items.to_a.sum {|item| item.total_price}
+end
+
 def add_property(property)
   current_item = line_items.find_by(property_id: property.id)
   if current_item

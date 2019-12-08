@@ -12,21 +12,24 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @property.ptype %>
+  <%case @property.ptype when 't'%>Townhouse
+  <%when 'u'%>Unit
+  <%when 'h'%>House
+  <%end%>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @property.price %>
+  $<%= @property.price %>
 </p>
 
 <p>
-  <strong>Yearbuilt:</strong>
+  <strong>Year built:</strong>
   <%= @property.yearbuilt %>
 </p>
 
 <p>
-  <strong>Councilarea:</strong>
+  <strong>Council area:</strong>
   <%= @property.councilarea %>
 </p>
 
@@ -41,8 +44,43 @@
 </p>
 
 <p>
-  <strong>Regionname:</strong>
+  <strong>Region name:</strong>
   <%= @property.regionname %>
+</p>
+
+<p>
+  <strong>Rooms:</strong>
+  <%= @property.feature.rooms %>
+</p>
+
+<p>
+  <strong>Bedrooms:</strong>
+  <%= @property.feature.bedrooms %>
+</p>
+
+<p>
+  <strong>Bathrooms:</strong>
+  <%= @property.feature.bathrooms %>
+</p>
+
+<p>
+  <strong>Car spaces:</strong>
+  <%= @property.feature.carspaces %>
+</p>
+
+<p>
+  <strong>Landsize:</strong>
+  <%= @property.feature.landsize %> m^2
+</p>
+
+<p>
+  <strong>Building area:</strong>
+  <%= @property.feature.buildingarea %> m^2
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @property.feature.distance %> km
 </p>
 
 <%=button_to 'Add to Cart', line_items_path(property_id: @property.id)%>

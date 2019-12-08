@@ -32,8 +32,8 @@
           </thead>
           <tbody>
 <% @properties.each do |prop| %>
-            <tr> <%# tr onclick="window.location='#';" %>
-              <td><%=prop.address%></td>
+            <tr>
+              <td><%=link_to prop.address, property_path(prop.id)%></td>
               <td><%=prop.suburb%></td>
               <%case prop.ptype when 't'%><td>Townhouse</td>
               <%when 'u'%><td>Unit</td>
@@ -46,7 +46,7 @@
               <td><%=prop.regionname%></td>
               <td><%=button_to 'Add to Cart', line_items_path(property_id: prop.id)%></td>
             </tr>
-                  <%end%>
+<%end%>
       </table>
       <%=will_paginate @properties%>
     </div>
