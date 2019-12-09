@@ -77,13 +77,16 @@
             <a class="nav-link" style="color:white" href="/map">Property Map</a>
           </li>
           <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
+          <li class="nav-item" style="padding-top: 9px">
+  Logged in as <strong><%= current_user.email %></strong>
+  </li>
   <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link', style: 'color:white'%>
   <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link', style: 'color:white'%>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, class: 'nav-link', style: 'color:white'%>
   <%= link_to "Login", new_user_session_path, class: 'nav-link', style: 'color:white'%>
 <% end %>
+
         </ul>
       </div>
     </div>

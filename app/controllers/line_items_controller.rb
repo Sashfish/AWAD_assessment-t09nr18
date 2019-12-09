@@ -1,3 +1,4 @@
+#Ruby, S., & Thomas, D. (2009). Agile web development with rails. Raleigh, NC: Pragmatic Bookshelf.
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]

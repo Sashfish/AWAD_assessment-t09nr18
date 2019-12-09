@@ -1,0 +1,25 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :order_name, size: 40 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address, id: :order_address, rows: 3, cols: 40 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, id: :order_email, size: 40, :value => current_user.email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pay_type %>
+    <%= form.select :pay_type, Order.pay_types.keys, id: :order_pay_type, prompt: 'Select a payment method' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Place Order' %>
+  </div>
+<% end %>

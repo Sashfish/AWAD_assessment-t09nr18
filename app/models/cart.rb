@@ -1,3 +1,4 @@
+#Ruby, S., & Thomas, D. (2009). Agile web development with rails. Raleigh, NC: Pragmatic Bookshelf.
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
   before_destroy :ensure_not_referenced_by_any_line_item
