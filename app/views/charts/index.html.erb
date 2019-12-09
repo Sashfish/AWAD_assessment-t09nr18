@@ -1,1 +1,18 @@
-<%= pie_chart Property.group(:suburb).count %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6"
+      <p><strong>Number of properties in each suburb</strong></p>
+      <%= pie_chart Property.group(:suburb).count %>
+    </div>
+    <div class="col-sm-6">
+      <p><strong>Number of rooms across the properties</strong></p>
+      <%= column_chart Feature.group(:rooms).count %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12"
+      <p><strong>Property Prices</strong></p>
+      <%= bar_chart @p%>
+    </div>
+  </div>
+</div>
