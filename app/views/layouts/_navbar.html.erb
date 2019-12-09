@@ -64,18 +64,26 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <%if session[:cart_id] != nil%>
-          <%=link_to 'C a r t', cart_path(session[:cart_id])%>
+          <%=link_to 'Cart', cart_path(session[:cart_id]), class: 'nav-link', style: 'color:white'%>
           <%else%>
           <li class="nav-item">
             <a class="nav-link">Cart is empty</a>
           </li>
           <%end%>
           <li class="nav-item">
-            <a class="nav-link" href="/weather">Check the weather</a>
+            <a class="nav-link" style="color:white" href="/weather">Check the weather</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/map">Property Map</a>
+            <a class="nav-link" style="color:white" href="/map">Property Map</a>
           </li>
+          <% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link', style: 'color:white'%>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link', style: 'color:white'%>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, class: 'nav-link', style: 'color:white'%>
+  <%= link_to "Login", new_user_session_path, class: 'nav-link', style: 'color:white'%>
+<% end %>
         </ul>
       </div>
     </div>
