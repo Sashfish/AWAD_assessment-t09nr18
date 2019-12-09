@@ -27,6 +27,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'devise'
 gem 'faker'
 gem 'open-weather'
+gem 'chartkick'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
