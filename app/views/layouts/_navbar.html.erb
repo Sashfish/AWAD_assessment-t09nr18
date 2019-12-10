@@ -77,7 +77,7 @@
             <a class="nav-link" style="color:white" href="/map">Property Map</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="color:white" href="/charts">Dashboard</a>
+            <a class="nav-link" style="color:white" href="/charts">Graphs'n'Charts</a>
           </li>
           <% if user_signed_in? %>
           <li class="nav-item" style="padding-top: 9px">
@@ -88,6 +88,11 @@
 <% else %>
   <%= link_to "Sign up", new_user_registration_path, class: 'nav-link', style: 'color:white'%>
   <%= link_to "Login", new_user_session_path, class: 'nav-link', style: 'color:white'%>
+<% end %>
+<% if current_user.admin?%>
+<li class="nav-item">
+  <a class="nav-link" style="color:white" href="/admin">Admin Dashboard</a>
+</li>
 <% end %>
 
         </ul>
