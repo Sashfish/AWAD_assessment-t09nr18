@@ -1,9 +1,7 @@
-
-REFERENCE<%=@request%>
-<h3>Current Weather in Melbourne <img src="http://openweathermap.org/img/wn/<%=@request['weather'][0]['icon']%>@2x.png"/></h3>
-Overall: <%=@request['weather'][0]['main']%> - <%=@request['weather'][0]['description']%> <br />
-Current Temperature: <%=@request['main']['temp']%>°C<br />
-Pressure: <%=@request['main']['pressure']%> mb<br />
-Humidity: <%=@request['main']['humidity']%> %<br />
-Temperature range: <%=@request['main']['temp_min']%>°C - <%=@request['main']['temp_max']%>°C<br />
-Wind speed: <%=@request['wind']['speed']%> m/s; direction: <%=@request['wind']['deg']%>°<br />
+<h3>Current Weather in Melbourne <img src="http://openweathermap.org/img/wn/<%=@request['weather'][0]['icon']%>@2x.png"/></h3><br />
+<i><b>Overall:</b></i> <%=@request['weather'][0]['main']%> - <%=@request['weather'][0]['description']%> <br />
+<i><b>Current Temperature:</b></i> <%=@request['main']['temp']%>°C<br />
+<i><b>Pressure:</b></i> <%=@request['main']['pressure']%> mb<br />
+<i><b>Humidity:</b></i> <%=@request['main']['humidity']%> %<br />
+<i><b>Temperature range:</b></i> <%=@request['main']['temp_min']%>°C - <%=@request['main']['temp_max']%>°C<br />
+<i><b>Wind speed:</b></i> <%=@request['wind']['speed']%> m/s; direction: <%=@request['wind']['deg']%>°<br />
