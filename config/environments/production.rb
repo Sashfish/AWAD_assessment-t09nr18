@@ -109,4 +109,10 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+#OWASP SECURITY STUFF - change when get heroku url
+#config.action_controller.default_url_options = {host: "www.yoursite.com"}
+#config.action_controller.asset_host = "www.yoursite.com"
+config.force_ssl = true
+
 end
