@@ -1,0 +1,38 @@
+<%if current_user.admin?%>
+<h3>Customer orders</h3>
+<div class="digg_pagination">
+  <div class="page_info">
+    <%if @orders.size > 10%>
+    <%= page_entries_info @orders %>
+    <%end%>
+  </div>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Customer Address</th>
+            <th scope="col">Customer Email</th>
+            <th scope="col">Payment Type</th>
+            <th scope="col">Property Bought</th>
+            <th scope="col">Property Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+<% @orders.each do |order| %>
+          <tr>
+            <td><%=order.name%></td>
+            <td><%=order.address%></td>
+            <td><%=order.email%></td>
+            <td><%=order.pay_type%></td>
+            <td><%=Property.find(order.line_items.pluck(:property_id)).pluck(:address).to_s.tr("[]\"", '')%></td>
+            <td><%=order.line_items.pluck(:quantity).to_s.tr("[]", '')%></td>
+          </tr>
+<% end %>
+    </table>
+    <%if @orders.size >10%>
+    <%=will_paginate @orders%>
+    <%end%>
+  </div>
+<% else %>
+<p>Sorry, this feature is only available for admins<p>
+<%end%>
