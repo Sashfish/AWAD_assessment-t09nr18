@@ -3,7 +3,7 @@
 one:
   suburb: MyText
   address: MyText
-  type: MyText
+  ptype: MyText
   price: 1
   yearbuilt: 1
   councilarea: MyText
@@ -14,7 +14,7 @@ one:
 two:
   suburb: MyText
   address: MyText
-  type: MyText
+  ptype: MyText
   price: 1
   yearbuilt: 1
   councilarea: MyText
