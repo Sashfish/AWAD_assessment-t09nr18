@@ -1,5 +1,5 @@
 # README
-This application was created as part of Advanced Web Application Development course at University of Aberdeen. A live version of the application is available at http://XXX (NOTE: accessing the app via https:// breaks the maps, use http:// instead)
+This application was created as part of Advanced Web Application Development course at University of Aberdeen. A live version of the application is available at https://fast-hamlet-66958.herokuapp.com
 ## Ruby version
 * 2.6.4
 ## Rails version
