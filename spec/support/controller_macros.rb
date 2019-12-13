@@ -1,3 +1,4 @@
+include Warden::Test::Helpers
 #https://matthewhoelter.com/2019/09/12/setting-up-and-testing-rails-6.0-with-rspec-factorybot-and-devise.html
 FactoryBot.define do
   module ControllerMacros
@@ -14,7 +15,7 @@ FactoryBot.define do
    def login_admin
      before(:each) do
        @request.env["devise.mapping"] = Devise.mappings[:admin]
-       sign_in FactoryBot.create(:admin) # Using factory bot as an example
+       sign_in FactoryBot.create(:user) # Using factory bot as an example
      end
    end
 end
