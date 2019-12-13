@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+   include Devise::Test::ControllerHelpers
+   sign_in users(:one)
+   get :edit, id: users(:two)
+   assert_redirected_to root_url
 end
