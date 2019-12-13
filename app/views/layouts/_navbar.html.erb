@@ -24,12 +24,12 @@
           <% if user_signed_in? %>
           <li class="nav-item">
             <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <strong><%= current_user.email %></strong>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-                <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link', style: 'color:black'%>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link', style: 'color:black'%>
+                <%= link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item', style: 'color:black'%>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item', style: 'color:black'%>
               </div>
             </div>
   </li>
