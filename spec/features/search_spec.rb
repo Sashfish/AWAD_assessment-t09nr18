@@ -1,7 +1,9 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.feature "Search", :type => :feature do
-  scenario "Search redirects to properties" do
+require 'rails_helper'
+
+RSpec.feature 'Search', type: :feature do
+  scenario 'Search redirects to properties' do
     user = FactoryBot.create(:user)
     Property.create(
       suburb: 'whatever',
@@ -13,13 +15,13 @@ RSpec.feature "Search", :type => :feature do
       lattitude: 1,
       longitude: 1,
       regionname: 'whatever')
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
 
-    visit "/"
+    visit '/'
 
-    fill_in "Search", :with => "Turner"
-    click_button "Search"
+    fill_in 'Search', with:'Turner'
+    click_button 'Search'
 
-    expect(page).to have_text("Turner")
+    expect(page).to have_text('Turner')
   end
 end

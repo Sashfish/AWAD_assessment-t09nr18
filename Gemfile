@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -23,11 +24,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap', '>= 4.3.1'
-gem 'will_paginate', '~> 3.1.0'
 gem 'devise'
 gem 'faker'
-gem 'open-weather'
+gem 'will_paginate', '~> 3.1.0'
 gem 'chartkick'
+gem 'open-weather'
 gem 'rails_admin'
 gem 'rubocop', require: false
 
@@ -38,12 +39,12 @@ gem 'rubocop', require: false
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   %w[rspec-core rspec-expectations rspec-mocks rspec-support].each do |lib|
-    gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
-    end
-  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails', branch: '4-0-maintenance'
+  gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+  end
+  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails',
+   branch: '4-0-maintenance'
   gem 'rails-controller-testing'
 end
 

@@ -1,4 +1,6 @@
-#Ruby, S., & Thomas, D. (2009). Agile web development with rails. Raleigh, NC: Pragmatic Bookshelf.
+# frozen_string_literal: true
+
+# Ruby, S., & Thomas, D. (2009). Agile web development with rails. Raleigh, NC: Pragmatic Bookshelf.
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
@@ -65,6 +67,7 @@ class CartsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
       @cart = Cart.find(params[:id])
