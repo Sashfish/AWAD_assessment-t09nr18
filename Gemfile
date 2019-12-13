@@ -43,6 +43,7 @@ group :development, :test do
     gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
     end
   gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails', branch: '4-0-maintenance'
+  gem 'rails-controller-testing'
 end
 
 group :development do
